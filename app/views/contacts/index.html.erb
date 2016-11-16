@@ -1,0 +1,22 @@
+<h2><%= @page_subtitle %></h2>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Contacts
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% @contacts.each do |contact| %>
+    <li><a href="#"><%= contact.first_name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+    <% @contacts.each do |contact| %>
+      <h4><%= contact.first_name %></h4>
+      <h4><%= contact.last_name %></h4>
+      <h4><%= contact.phone_number %></h4>
+      <h4><%= contact.email %></h4>
+    <% end %>
+
+<%= link_to "Add new contact", "/contacts/new" %>
