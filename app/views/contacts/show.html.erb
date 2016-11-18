@@ -2,7 +2,9 @@
 <h4><%= @contact.last_name %></h4>
 <h4><%= @contact.phone_number %></h4>
 <h4><%= @contact.email %></h4>
+<h4><%= @contact.full_name %></h4>
 <p><%= @contact.pretty_time %></p>
+<p><%= @contact.japan_number %></p>
 
 <%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %>
 <%= link_to "Delete Contact", "/contacts/#{@contact.id}", method: :delete %>

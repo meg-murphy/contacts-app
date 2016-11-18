@@ -10,6 +10,10 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
   end
 
+  def johns
+    @contacts = Contact.all
+  end
+
   def new
 
   end
