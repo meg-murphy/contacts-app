@@ -1,28 +1,60 @@
+<h3>
 <%= form_tag "/contacts", method: :post do %>
-  <div>
-    <%= label_tag :first_name %>
-    <%= text_field_tag :first_name %>
+<form class="form-inline">
+
+  <div class="form-group">
+    <div>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, nil, placeholder: "First Name", class: "form-control"%>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name %>
+  <div class="form-group">
+    <div>
+      <%= label_tag :middle_name %>
+      <%= text_field_tag :middle_name, nil, placeholder: "Middle Name", class: "form-control"%>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :phone_number %>
-    <%= text_field_tag :phone_number %>
+  <div class="form-group">
+    <div>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, nil, placeholder: "Last Name", class: "form-control"%>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+  <div class="form-group">
+    <div>
+      <%= label_tag :phone_number %>
+      <%= text_field_tag :phone_number, nil, placeholder: "Phone Number", class: "form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div>
+      <%= label_tag :email %>
+      <%= text_field_tag :email, nil, placeholder: "Email", class: "form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div>
+      <%= label_tag :address %>
+      <%= text_field_tag :bio, nil, placeholder: "Address", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div>
+      <%= label_tag :bio %>
+      <%= text_field_tag :bio, nil, placeholder: "Bio", class: "form-control" %>
+    </div>
   </div>
 
 
-
   <div>
-    <%= submit_tag "Submit" %>
+    <%= submit_tag "Submit", class:"btn btn-default" %>
   </div>
 
 <% end %>
+</h3>
