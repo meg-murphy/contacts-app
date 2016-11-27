@@ -1,4 +1,7 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
+
   def contact_home
     @page_title = "Contact Home Page"
     @page_subtitle = "Contacts:"
@@ -7,7 +10,7 @@ class ContactsController < ApplicationController
 
   def index
     @page_subtitle = "Contacts Index"
-    @contacts = Contact.all
+    @contacts = Contact.all.where(user_id: current_user)
   end
 
   def johns
@@ -19,8 +22,17 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contacts = Contact.new(first_name: params[:first_name], last_name: params[:last_name], phone_number: params[:phone_number], email: params[:email])
-    @contacts.save
+    @contact = Contact.new(first_name: params[:first_name], last_name: params[:last_name],
+     phone_number: params[:phone_number], email: params[:email], user_id: current_user.id)
+
+     if @contact.save
+       flash[:success] = "Contact saved."
+       redirect_to "/contacts"
+     else
+       flash[:warning] = "Error - contact not saved."
+       redirect_to "/contacts/new"
+     end
+
   end
 
   def show

@@ -1,4 +1,5 @@
 class Contact < ApplicationRecord
+  belongs_to :user
 
   def pretty_time
     return created_at.strftime("%A, %d %b %Y %l:%M %p")

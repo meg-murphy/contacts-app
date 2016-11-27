@@ -9,7 +9,41 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 
-  </head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/contacts">Contacts</a>
+      </div>
+
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+      <li><a href="/contacts/new">Add Contact</a></li>
+      <li><%link_to "Add Contact", "/contacts/new" %></li>
+      <li><a href="/logout">Log Out</a></li>
+
+      <% else %>
+      <li><a href="/login">Sign In</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+      <% end %>
+
+    </ul>
+
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+
+
+  <div class="container">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %>" "alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p> <%= message %> </p>
+      </div>
+    <% end %>
+
+
 
   <body>
     <%= yield %>
